@@ -1,0 +1,37 @@
+x-ubuntu-server: &ubuntu-server
+  image: practica-8-ubuntu-ansible:local
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+
+services:
+  servidor1:
+    <<: *ubuntu-server
+    hostname: servidor1
+    ports:
+      - "127.0.0.1:2221:22"
+
+  servidor2:
+    <<: *ubuntu-server
+    hostname: servidor2
+    ports:
+      - "127.0.0.1:2222:22"
+
+  servidor3:
+    <<: *ubuntu-server
+    hostname: servidor3
+    ports:
+      - "127.0.0.1:2223:22"
+
+  servidor4:
+    <<: *ubuntu-server
+    hostname: servidor4
+    ports:
+      - "127.0.0.1:2224:22"
+
+  servidor5:
+    <<: *ubuntu-server
+    hostname: servidor5
+    ports:
+      - "127.0.0.1:2225:22"
